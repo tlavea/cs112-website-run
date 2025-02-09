@@ -1,5 +1,3 @@
-emailjs.init("wbxjhlvzO3XQ4PofF");
-
 // validation form
 function checkCredentials(action) {
     var email = document.getElementById('email').value;
@@ -33,7 +31,7 @@ function checkCredentials(action) {
         return;
     }
 
-    // checks for login vs register
+    // Check if the user exists in localStorage
     var storedEmail = localStorage.getItem('email');
     var storedPassword = localStorage.getItem('password');
 
@@ -84,6 +82,8 @@ async function submitComment() {
         return;
     }
 
+    emailjs.init("wbxjhlvzO3XQ4PofF");
+
     // email the first name and comment
     var commentMessage = `First Name: ${firstName}\nEmail: ${email}\nComment: ${comment}`;
 
@@ -103,4 +103,3 @@ async function submitComment() {
         console.error('EmailJS error:', error);
     }
 }
-
